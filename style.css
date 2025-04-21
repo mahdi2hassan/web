@@ -7,8 +7,8 @@
 
 body {
     direction: rtl;
-    background-color: #f0f4f8;
-    color: #333;
+    background-color: #f8fafc;
+    color: #1e3a8a;
     overflow-x: hidden;
     position: relative;
 }
@@ -21,13 +21,13 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.2;
+    opacity: 0.3;
 }
 
 /* الهيدر */
 .sticky-header {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 111, 97, 0.2));
+    backdrop-filter: blur(12px);
     color: white;
     padding: 1rem 2rem;
     display: flex;
@@ -36,36 +36,37 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .logo h1 {
-    font-size: 2rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.2rem;
     color: #fff;
 }
 
 .plus-sign {
     color: #ff6f61;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: bold;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    transition: color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #ff6f61;
-    transform: scale(1.1);
+    transform: translateY(-2px);
 }
 
 .menu-toggle {
@@ -77,10 +78,10 @@ nav ul li a:hover {
 
 /* الهيرو سيكشن */
 .hero {
-    background: url('https://source.unsplash.com/random/1920x1080?math') no-repeat center/cover;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: white;
     text-align: center;
-    padding: 8rem 2rem;
+    padding: 10rem 2rem;
     position: relative;
     overflow: hidden;
 }
@@ -92,171 +93,190 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 123, 255, 0.7);
+    background: url('https://source.unsplash.com/random/1920x1080?math') no-repeat center/cover;
+    opacity: 0.3;
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    animation: fadeInUp 1s ease-in-out;
 }
 
 .hero-content h2 {
-    font-size: 3rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-button {
     background: #ff6f61;
     color: white;
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 50px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     display: inline-block;
 }
 
 .cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: #e55a4e;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* قسم المقررات */
 .courses {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
-    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
 }
 
 .courses h2 {
-    font-size: 2.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.8rem;
     margin-bottom: 3rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     padding: 0 1rem;
 }
 
 .course-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.4s, box-shadow 0.4s;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 111, 97, 0.1);
 }
 
 .course-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: #ff6f61;
 }
 
 .course-card i {
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #ff6f61;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .course-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 0.8rem;
-    color: #1a202c;
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    color: #1e3a8a;
 }
 
 .course-card p {
     font-size: 1rem;
     color: #4a5568;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .course-link {
     display: inline-block;
     background: #ff6f61;
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
     text-decoration: none;
-    transition: background 0.3s;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .course-link:hover {
     background: #e55a4e;
+    transform: translateY(-2px);
 }
 
 /* قسم البيانات */
 .data {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
-    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
 }
 
 .data h2 {
-    font-size: 2.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.8rem;
     margin-bottom: 2rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .requests-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    max-width: 800px;
+    gap: 1.5rem;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 .request-item {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     text-align: right;
+    border: 1px solid rgba(255, 111, 97, 0.1);
+}
+
+.request-item p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
 }
 
 /* قسم الصف الدراسي */
 .grade {
-    padding: 4rem 2rem;
+    padding: 5rem 2rem;
     text-align: center;
-    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
 }
 
 .grade h2 {
-    font-size: 2.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.8rem;
     margin-bottom: 2rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .grade-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: right;
 }
 
 .grade-content h3 {
-    font-size: 1.8rem;
-    margin: 1rem 0;
-    color: #1a202c;
+    font-size: 1.9rem;
+    margin: 1.5rem 0;
+    color: #1e3a8a;
 }
 
 .grade-content p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #4a5568;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 /* قسم التسجيل */
@@ -266,56 +286,67 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
     padding: 2rem;
 }
 
 .signup h2 {
-    font-size: 2.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.8rem;
     margin-bottom: 2rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .signup form {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     text-align: center;
+    border: 1px solid rgba(255, 111, 97, 0.1);
 }
 
 .signup label {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .signup input {
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
     font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.signup input:focus {
+    outline: none;
+    border-color: #ff6f61;
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
 }
 
 .signup button {
     background: #ff6f61;
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 2rem;
     font-size: 1.2rem;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    width: 100%;
 }
 
 .signup button:hover {
     background: #e55a4e;
+    transform: translateY(-2px);
 }
 
 /* قسم تسجيل الأدمن */
@@ -325,67 +356,79 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f0f4f8, #e0e7ff);
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
     padding: 2rem;
 }
 
 .admin-login h2 {
-    font-size: 2.5rem;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2.8rem;
     margin-bottom: 2rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .admin-login form {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     text-align: center;
+    border: 1px solid rgba(255, 111, 97, 0.1);
 }
 
 .admin-login label {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #1a202c;
+    color: #1e3a8a;
 }
 
 .admin-login input {
     width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
     font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.admin-login input:focus {
+    outline: none;
+    border-color: #ff6f61;
+    box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
 }
 
 .admin-login button {
     background: #ff6f61;
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 2rem;
     font-size: 1.2rem;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    width: 100%;
 }
 
 .admin-login button:hover {
     background: #e55a4e;
+    transform: translateY(-2px);
 }
 
 /* الفوتر */
 footer {
-    background: #1a202c;
+    background: #1e3a8a;
     color: white;
     text-align: center;
     padding: 3rem 2rem;
 }
 
 .footer-content h3 {
+    font-family: 'Tajawal', sans-serif;
     font-size: 2rem;
     margin-bottom: 1.5rem;
 }
@@ -395,11 +438,21 @@ footer {
     font-size: 1.1rem;
 }
 
+.footer-content p a {
+    color: #ff6f61;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-content p a:hover {
+    color: #e55a4e;
+}
+
 .social-icons a {
     color: white;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin: 0 1rem;
-    transition: color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -439,10 +492,10 @@ footer {
     nav {
         display: none;
         position: absolute;
-        top: 60px;
+        top: 70px;
         right: 0;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 111, 97, 0.2));
+        backdrop-filter: blur(12px);
         width: 100%;
         padding: 1rem;
         text-align: center;
@@ -454,7 +507,7 @@ footer {
 
     nav ul {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
     .menu-toggle {
@@ -462,11 +515,11 @@ footer {
     }
 
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
     .courses h2,
@@ -474,6 +527,31 @@ footer {
     .grade h2,
     .signup h2,
     .admin-login h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 6rem 1rem;
+    }
+
+    .courses,
+    .data,
+    .grade {
+        padding: 3rem 1rem;
+    }
+
+    .footer {
+        padding: 2rem 1rem;
     }
 }
