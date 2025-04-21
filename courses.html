@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقررات - بلس</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="sticky-header">
+        <div class="logo">
+            <h1>بلس <span class="plus-sign">+</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#courses">المقررات</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="admin.html">تسجيل دخول الأدمن</a></li>
+                <li><a href="signup.html">تسجيل حساب</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- قسم المقررات -->
+    <section id="courses" class="courses">
+        <h2>جميع المقررات الدراسية</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الأول الإعدادي</h3>
+                <p>دروس شاملة تغطي الجبر والهندسة مع فيديوهات تفاعلية.</p>
+                <a href="grade.html?grade=first-prep" class="course-link">ابدأ الآن</a>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الثاني الإعدادي</h3>
+                <p>تدريبات متقدمة على المعادلات والإحصائيات.</p>
+                <a href="grade.html?grade=second-prep" class="course-link">ابدأ الآن</a>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الثالث الثانوي - علمي</h3>
+                <p>رياضيات متقدمة للشعبة العلمية مع امتحانات تجريبية.</p>
+                <a href="grade.html?grade=third-sci" class="course-link">ابدأ الآن</a>
+            </div>
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الثالث الثانوي - أدبي</h3>
+                <p>رياضيات مخصصة للشعبة الأدبية مع شرح مبسط.</p>
+                <a href="grade.html?grade=third-lit" class="course-link">ابدأ الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>تواصل مع بلس</h3>
+            <p>البريد الإلكتروني: info@plusmaths.com</p>
+            <p>الهاتف: 123-456-7890</p>
+            <div class="social-icons">
+                <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/plusmaths"><i class="fab fa-telegram"></i></a>
+                <a href="https://facebook.com/plusmaths"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/plusmaths"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+</body>
+</html>
