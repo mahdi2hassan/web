@@ -9,10 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Background Animation Canvas -->
+    <!-- خلفية الأنيميشن -->
     <canvas id="bgCanvas"></canvas>
 
-    <!-- Header -->
+    <!-- الهيدر -->
     <header class="sticky-header">
         <div class="logo">
             <h1>بلس <span class="plus-sign">+</span></h1>
@@ -20,8 +20,10 @@
         <nav>
             <ul>
                 <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#features">المميزات</a></li>
+                <li><a href="courses.html">المقررات</a></li>
                 <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="admin.html">تسجيل دخول الأدمن</a></li>
+                <li><a href="signup.html">تسجيل حساب</a></li>
             </ul>
         </nav>
         <div class="menu-toggle">
@@ -29,51 +31,56 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- الهيرو سيكشن -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h2>اكتشف بلس</h2>
-            <p>منصة رياضيات مبتكرة تجمع بين الإبداع والتكنولوجيا لتجربة فريدة!</p>
-            <button class="cta-button">ابدأ رحلتك الآن</button>
+            <h2>مرحبًا بك في بلس</h2>
+            <p>منصة تعليمية مبتكرة لتعليم الرياضيات لكل المراحل الدراسية!</p>
+            <a href="courses.html" class="cta-button">استكشف المقررات</a>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <h2>ما الذي يميز بلس؟</h2>
-        <div class="feature-cards">
-            <div class="card">
-                <i class="fas fa-calculator"></i>
-                <h3>حلول ذكية</h3>
-                <p>حل المعادلات بسهولة وسرعة باستخدام أدوات متطورة.</p>
+    <!-- لمحة عن المقررات -->
+    <section id="courses-preview" class="courses">
+        <h2>مقرراتنا الدراسية</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الأول الإعدادي</h3>
+                <p>دروس رياضيات شاملة للصف الأول الإعدادي.</p>
+                <a href="courses.html" class="course-link">عرض التفاصيل</a>
             </div>
-            <div class="card">
-                <i class="fas fa-plus-circle"></i>
-                <h3>تصميم إبداعي</h3>
-                <p>واجهة مستخدم تجمع بين الأناقة والوظائف العملية.</p>
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الثالث الثانوي - علمي</h3>
+                <p>رياضيات متقدمة للشعبة العلمية.</p>
+                <a href="courses.html" class="course-link">عرض التفاصيل</a>
             </div>
-            <div class="card">
-                <i class="fas fa-user-friends"></i>
-                <h3>دعم مستمر</h3>
-                <p>فريق دعم متاح 24/7 للإجابة على استفساراتك.</p>
+            <div class="course-card">
+                <i class="fas fa-book"></i>
+                <h3>الصف الثالث الثانوي - أدبي</h3>
+                <p>رياضيات مخصصة للشعبة الأدبية.</p>
+                <a href="courses.html" class="course-link">عرض التفاصيل</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- الفوتر -->
     <footer id="contact">
         <div class="footer-content">
             <h3>تواصل مع بلس</h3>
             <p>البريد الإلكتروني: info@plusmaths.com</p>
             <p>الهاتف: 123-456-7890</p>
             <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/1234567890"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/plusmaths"><i class="fab fa-telegram"></i></a>
+                <a href="https://facebook.com/plusmaths"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com/plusmaths"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
 </body>
 </html>
