@@ -1,90 +1,470 @@
+
+
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بلس - منصة الرياضيات العصرية</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@700&display=swap" rel="stylesheet">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head><meta charset="utf-8" />
+	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><![endif]-->
+	<title>
+	جامعة بنى سويف - مدفوعات الاخرى للطلاب
+</title><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" /><meta name="author" /><link rel="stylesheet" href="css/bootstrap.min.css" /><link rel="stylesheet" href="css/zabuto_calendar.css" /><link rel="stylesheet" href="css/font-awesome.min.css" /><link rel="stylesheet" href="css/style.css" /><link href="ajaxcalendarfix.css" rel="stylesheet" type="text/css" />
+<style>
+@media screen and (max-width: 768px)
+.well-sm {
+    width: unset !important;
+    margin-right: unset !important;
+}
+</style>
+	<!--[if lt IE 9]>
+			<script src="js/html5shiv.min.js"></script>
+			<script src="js/respond.min.js"></script>
+	<![endif]-->
+	
+		
+    
+          <script src="jquery-1.3.2.min.js" type="text/javascript"></script>
+           
+    <script type="text/javascript">
+      
+      /*  $(function() {
+            var $txt = $('input[id$=TextBox1]');
+            var $ddl = $('select[id$=DropDownList1]');
+            var $items = $('select[id$=DropDownList1] option');
+ 
+            $txt.keyup(function() {
+                searchDdl($txt.val());
+            });
+ 
+            function searchDdl(item) {
+                $ddl.empty();
+                var exp = new RegExp(item, "i");
+                var arr = $.grep($items,
+                    function(n) {
+                        return exp.test($(n).text());
+                    });
+ 
+                if (arr.length > 0) {
+                    countItemsFound(arr.length);
+                    $.each(arr, function() {
+                        $ddl.append(this);
+                        $ddl.get(0).selectedIndex = 0;
+                    }
+                    );
+                }
+                else {
+                    countItemsFound(arr.length);
+                    $ddl.append("<option>No Items Found</option>");
+                }
+            }
+ 
+            function countItemsFound(num) {
+                $("#para").empty();
+                if ($txt.val().length) {
+                    $("#para").html(num + " items found");
+                }
+ 
+            }
+        });*/
+        $(function () {
+            var $txt = $('input[id$=txtNew]');
+            var $ddl = $('select[id$=DdlFaculty]');
+            var $items = $('select[id$=DdlFaculty] option');
+ 
+            $txt.keyup(function() {
+                searchDdl($txt.val());
+            });
+ 
+            function searchDdl(item) {
+                $ddl.empty();
+                var exp = new RegExp(item, "i");
+                var arr = $.grep($items,
+                    function(n) {
+                        return exp.test($(n).text());
+                    });
+ 
+                if (arr.length > 0) {
+                    countItemsFound(arr.length);
+                    $.each(arr, function() {
+                        $ddl.append(this);
+                        $ddl.get(0).selectedIndex = 0;
+                    }
+                    );
+                }
+                else {
+                    countItemsFound(arr.length);
+                    $ddl.append("<option>No Items Found</option>");
+                }
+            }
+ 
+            function countItemsFound(num) {
+                $("#para").empty();
+                if ($txt.val().length) {
+                    $("#para").html(num + " items found");
+                }
+ 
+            }
+        });
+        function doPostBack(o){
+             __doPostBack(o.id,'');
+     }
+    </script>
+    <style>
+        .modal {
+	z-index: 10;
+	display: block;
+	padding-top: 100px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.5)
+}
+.modal-content {
+	margin: auto;
+	background-color: #fff;
+	position: relative;
+	padding: 0;
+	outline: 0;
+	max-width: 600px
+}
+.modal-inner { padding: 20px 30px; }
+.modal-close {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: #ccc;
+	padding: 6px 10px;
+}
+.animate-opacity { animation: opac 0.8s }@keyframes opac{from{opacity:0} to{opacity:1}}
+    </style>
 </head>
 <body>
-    <!-- خلفية الأنيميشن -->
-    <canvas id="bgCanvas"></canvas>
+     <form name="aspnetForm" method="post" action="./" id="aspnetForm" autocomplete="off">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJOTc5NjQ0OTI5D2QWAmYPZBYEAgMPZBYCAgEPZBYIAg8PEA8WAh4LXyFEYXRhQm91bmRnZBAVNhXYp9iu2KrYsSDYp9mE2YPZhNmK2KkX2YPZhNmK2Kkg2KfZhNiq2LHYqNmK2Kkw2YPZhNmK2Kkg2KfZhNiq2YPZhtmI2YTZiNis2YrYpyDZiNin2YTYqti52YTZitmFF9mD2YTZitipINin2YTYqtmF2LHZiti2F9mD2YTZitipINin2YTYtdmK2K/ZhNmHKNmD2YTZitipINin2YTYqtix2KjZitipINin2YTYsdmK2KfYttmK2KkV2YPZhNmK2Kkg2KfZhNit2YLZiNmCEdmD2YTZitipINin2YTYt9ioINmD2YTZitipINin2YTYt9ioINin2YTYqNmK2LfYsdmJFdmD2YTZitipINin2YTYudmE2YjZhRXZg9mE2YrYqSDYp9mE2KLYr9in2KgX2YPZhNmK2Kkg2KfZhNiq2KzYp9ix2Kk12YPZhNmK2Kkg2KfZhNiq2LHYqNmK2Kkg2YTZhNi32YHZiNmE2Kkg2KfZhNmF2KjZg9ix2KkX2YPZhNmK2Kkg2KfZhNmH2YbYr9iz2Kkq2YPZhNmK2Kkg2KfZhNiz2YrYp9iz2Kkg2YjYp9mE2KfZgtiq2LXYp9ivF9mD2YTZitipINin2YTYp9i52YTYp9mFO9mD2YTZitipINin2YTYrdin2LPYqNin2Kog2YjYp9mE2LDZg9in2KEg2KfZhNin2LXYt9mG2KfYudmJHNmD2YTZitipINi32Kgg2KfZhNin2LPZhtin2YYk2YPZhNmK2Kkg2KfZhNi52YTYp9isINin2YTYt9io2YrYudmJRNmD2YTZitipINin2YTYr9ix2KfYs9in2Kog2KfZhNi52YTZitinINmE2YTYudmE2YjZhSDYp9mE2YXYqtmC2K/ZhdipF9mD2YTZitipINin2YTYstix2KfYudipSNmD2YTZitipINiq2YPZhtmI2YTZiNis2YrYpyDYp9mE2LnZhNmI2YUg2KfZhNi12K3ZitipINin2YTYqti32KjZitmC2YrYqSjZg9mE2YrYqSDYp9mE2YHZhtmI2YYg2KfZhNiq2LfYqNmK2YLZitipO9mD2YTZitipINin2YTYrtiv2YXYqSDYp9mE2KfYrNiq2YXYp9i52YrYqSDYp9mE2KrZhtmF2YjZitipFdmD2YTZitipINin2YTYp9mE2LPZhijZg9mE2YrYqSDYp9mE2LPZitin2K3YqSDZiNin2YTZgdmG2KfYr9mCHNmD2YTZitipINi52YTZiNmFINin2YTYp9ix2LY62YPZhNmK2Kkg2LnZhNmI2YUg2LDZiNmJINin2YTYp9it2KrZitin2KzYp9iqINin2YTYrtin2LXYqRrZhdi52YfYryDZgdmG2Ykg2KrZhdix2YrYtjHZhdi52YfYryDYp9io2K3Yp9irINmI2KrYt9io2YrZgtin2Kog2KfZhNmE2YrYstixOdmD2YTZitin2Kog2KfZhNiq2LnZhNmK2YUg2KfZhNmF2YHYqtmI2K0g2KjYp9mE2KzYp9mF2LnYqTPYp9mE2YXYudmH2K8g2KfZhNmC2YjZhdmJINmE2LnZhNmI2YUg2KfZhNmF2LPZhtmK2YYb2YjYrdiv2Kkg2KfZhNmF2LTYsdmI2LnYp9iqG9in2K/Yp9ix2Kkg2KfZhNmI2KfZgdiv2YrZhhXZhdix2YPYsiDYp9mE2KjYrdmI2Ksm2LHYudin2YrYqSDYp9mE2LTYqNin2Kgg2KfZhNmF2LHZg9iy2Yoh2KfZhNi12YbYp9iv2YrZgiDYp9mE2YXYsdmD2LLZitipJtmF2LHZg9iyINin2YTZhNi62KfYqiDZiNin2YTYqtix2KzZhdipQdmF2LHZg9iyINiq2YbZhdmK2Kkg2YLYr9ix2KfYqiDYp9i52LbYp9ihINmH2YrYptipINin2YTYqtiv2LHZitizQtin2YTZhdi52YXZhCDYp9mE2YXYsdmD2LLZiiDZg9mE2YrYqSDYp9mE2K/Ysdin2LPYp9iqINin2YTYudmE2YrYpxvZhdix2YPYsiDYp9mE2YXYpNiq2YXYsdin2Kou2YXYsdmD2LIg2KfZhNin2LPYqti02KfYsdin2Kog2KfZhNiq2LHYqNmI2YrYqSTZhdix2YPYsiDYp9mE2KXYsdi02KfYryDYp9mE2YbZgdiz2Yok2YXYsdmD2LIg2KfZhNiq2K3Zg9mK2YUg2KfZhNiv2YjZhNmKLtmI2K3Yr9ipINin2YTYp9iz2KrYtNin2LHYp9iqINin2YTZh9mG2K/Ys9mK2Kkw2YXYsdmD2LIg2KfZhNiv2LHYp9iz2KfYqiDYp9mE2KrZg9mG2YjZhNmI2KzZitipQ9mD2YTZitipINi52YTZiNmFINin2YTZhdmE2KfYrdipINmIINiq2YPZhtmI2YTZiNis2YrYpyDYp9mE2YHYttin2KEb2KfZhNmF2K/ZhiDYp9mE2KzYp9mF2LnZitipGdil2K/Yp9ix2Kkg2KfZhNis2KfZhdi52KlK2YXYudmH2K8g2K/Ysdin2LPYp9iqINin2YTZhdi02LHZiNi52KfYqiDYp9mE2LXYutmK2LHYqSDZiNin2YTZhdiq2YjYs9i32KkZ2YXYt9io2LnYqSDYp9mE2KzYp9mF2LnYqUDYrtiv2YXYqSDYp9mE2YXYrNiq2YXYuSDZiNiq2YbZhdmK2Kkg2KfZhNio2YrYptipINin2YTZhdix2YPYstmJOdmF2LHZg9iyINin2YTYp9mG2KrYp9isINmI2KfZhNiu2K/Zhdin2Kog2KfZhNi32YTYp9io2YrYqULZhdi52YfYryDYp9io2K3Yp9irINin2YTZhtio2KfYqtin2Kog2KfZhNi32KjZitipINmI2KfZhNi52LfYsdmK2KkVNgABMQEyATMBNAE1ATcBOAE5AjEwAjExAjEyAzM1OAM0MzEDNTc5AzU4OAM1OTADNTkxAzU5MgM1OTMDNjAzAzYwNAM2MDUDNjA3AzYwOQM2MTADNjEyAzYxMwM2MjUDNjMzAzY1NAM2NTYDNjY0AzY2NQM2NjYDNjY3AzY2OAM2NzEDNjczAzY3NAM2NzUDNjc2AzY3NwM2NzgDNjc5AzY4MAM2ODEDNjgyAzY4MwM2ODQDNjg2AzY4NwM2ODkDNzA2FCsDNmdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBZmQCFQ8QDxYCHwBnZBAVTxHYtNim2YjZhiDYt9mE2KfYqB3Yp9mE2K/Ysdin2LPYp9iqINin2YTYudmE2YrYpx/Yp9mE2KrYr9ix2YrYqCDYp9mE2YXZitiv2KfZhtmKH9in2YTYqtix2KjZitmHINin2YTYudiz2YPYsdmK2Ycr2YXYr9mB2YjYudin2Kog2KfZhNin2K/Yp9ix2Kkg2KfZhNi32KjZitipIFjZhdix2YPYsiDYp9mE2LfYqCDYp9mE2LTYsdi52Yog2YjYqtit2YTZitmEINin2YTYs9mF2YjZhS0g2YPZhNmK2Kkg2KfZhNi32Kgg2KfZhNio2LTYsdmKNdin2YTYqtix2KjZitipINin2YTYudmF2YTZitipINir2KfZhNir2Ycg2YjYsdin2KjYudmHPNmF2YLYp9io2YTYqSDYtNiu2LXZitipICjZhdix2K3ZhNipINin2YTYqNmD2KfZhNmI2LHZitmI2LMgKTrYqtmI2KvZitmCINi02YfYp9iv2KfYqiAtINiu2LHZitis2YrZhiDZhdi12LHZitmK2YYg2YHZgti3N9mF2K/ZgdmI2LnYp9iqINin2YTYtNi52Kgg2YjYp9mE2KjYsdin2YXYrCDYp9mE2K7Yp9i12Yco2KPYs9in2LPZitin2Kog2KfZhNiq2K3ZiNmEINin2YTYsdmC2YXZii3Yrtiv2YXYp9iqINin2YTZg9i02YEg2KfZhNi32KjZiiDZhNmE2LfZhNin2Kgm2YXYsdmD2LIg2KfZhNmE2LrYp9iqINmI2KfZhNiq2LHYrNmF2KlY2YXYsdmD2LIg2KfZhNiq2K/YsdmK2Kgg2YjYp9mE2K7Yr9mF2Kkg2KfZhNi52KfZhdipIC0g2LnZhNmI2YUg2KfYrdiq2YrYp9is2KfYqiDYrtin2LXYqTHZhdix2YPYsiDYqtmG2YXZitipINin2YTZhdmI2KfYsdivINin2YTYqNi02LHZitipJdmF2LHZg9iyINin2YTYqti52YTZitmFINin2YTZhdiv2YXYrCAs2YXYr9mB2YjYudin2Kog2KfZhNmF2YPYqtio2Kkg2KfZhNix2YLZhdmK2Kkd2KfZhNmF2KzZhNin2Kog2KfZhNi52YTZhdmK2Kkf2YXYr9mB2YjYudin2Kog2KfZhNiu2LHZitis2YrZhjXYp9i52LbYp9ihINmH2YrYptipINin2YTYqtiv2LHZitizINmI2KfZhNio2KfYrdir2YrZhjHZhdiv2YHZiNi52KfYqiDZg9mE2YrYqSDYp9mE2LnZhNmI2YUg2KfZhNi32KjZitipPNmF2LHZg9iyINin2YTYr9ix2KfYs9in2Kog2KfZhNmF2KfZhNmK2Kkg2YjYp9mE2KrYrNin2LHZitipIETZg9mE2YrYqSDYp9mE2K/Ysdin2LPYp9iqINin2YTYudmE2YrYpyDZhNmE2LnZhNmI2YUg2KfZhNmF2KrZgtiv2YXZhy3Zhdix2YPYsiDYqti32YjZitixINin2YTYqti52YTZitmFINin2YTYt9io2Ypf2YXYudmF2YQg2K7ZiNin2LUg2YjZhdmC2KfZiNmF2Kkg2KfZhNmF2YjYp9ivICjZg9mE2YrYqSDYp9mE2YfZhtiv2LPZhyDZiNit2K/YqSDYp9mE2YXYudin2YXZhCkx2YXYsdmD2LIg2LbZhdin2YYg2KfZhNis2YjYr9mHINmI2KfZhNin2LnYqtmF2KfYrzPYp9mE2LnZitin2K/Yp9iqINin2YTYrtin2LHYrNmK2KkgLSDYt9ioINin2LPZhtin2YZA2YXYsdmD2LIg2KfZhNin2YbYtNi32Kkg2KfZhNix2YrYp9i22YrYqS3Yqtix2KjZitipINix2YrYp9i22YrYqR/Zhdiv2YHZiNi52KfYqiDYp9mE2YXZg9iq2KjYp9iqHdi52KfZhdmE2YrZhiDYqNin2YTYrNin2YXYudipKdmF2LHZg9iyINiv2LnZhSDZiNiq2LfZiNmK2LEg2KfZhNio2K3ZiNirH9in2LTYqtix2KfZg9in2Kog2YXYpNiq2YXYsdin2Ko12KfZhNiq2KPZh9mK2YQg2KfZhNiq2LHYqNmI2YogLSDYqti52YTZitmFINi12YbYp9i52Yon2YXYr9mB2YjYudin2Kog2YPZhNmK2Kkg2LfYqCDYp9iz2YbYp9mGWdmF2LHZg9iyINin2YTYqtiv2LHZitioINmI2KfZhNin2LPYqti02KfYsdin2Kog2KfZhNiq2LHYqNmI2YrZhyAtINmD2YTZitipINin2YTYqtix2KjZitipGdmI2K3Yr9ipINin2YTYs9mK2KfYsdin2Kob2KrYudmE2YrZhSDYp9mE2YPYqtix2YjZhtmJMNio2LHZhtin2YXYrCDYp9mE2YXYudmE2YjZhdin2KrZitipINin2YTYt9io2YrYqVjZhdi52YXZhCDZhdmK2YPYp9mG2YrZg9inINin2YTYqtix2KjZhyAo2YPZhNmK2Kkg2KfZhNmH2YbYr9iz2Ycg2YjYrdiv2Kkg2KfZhNmF2LnYp9mF2YQpRdmF2LnZhdmEINin2YTYsNmD2KfYoSDYp9mE2KfYtdi32YbYp9i52YogLSDYrNin2YXYudipINio2YbZiiDYs9mI2YrZgT/Yp9mE2YXYsdmD2LIg2KfZhNis2KfZhdi52Yog2YTZhNiq2LfZiNmK2LEg2KfZhNmF2YfZhtmKIFUgQyBDIEQ62YXYsdmD2LIg2KfZhNio2K3ZiNirINmI2KfZhNmF2YbYqtis2KfYqiDYp9mE2LLYsdin2LnZitipIELZhdix2YPYsiDYp9mE2KrYr9ix2YrYqCDZiNin2YTYp9mG2LTYt9mHIC0g2YPZhNmK2Kkg2KfZhNiq2YXYsdmK2LZW2K/ZiNix2KfYqiDZhdix2YPYsiDYrtiv2YXYqSDYp9mE2YXYrNiq2YXYuSDYp9mE2KfYr9in2LHYqSDYp9mE2LnYp9mF2Kkg2YTZhNis2KfZhdi52Kk92YXYudmH2K8g2KfZhNmF2LTYsdmI2LnYp9iqINin2YTYtdi62YrYsdipINmI2KfZhNmF2KrZiNiz2LfZh0DZhdix2YPYsiDYp9mE2KrYr9ix2YrYqCDYp9mE2YXYs9iq2YXYsSAtINmD2YTZitipINin2YTZh9mG2K/Ys9mHMdmF2LnZh9ivINij2KjYrdin2Ksg2YjYqti32KjZitmC2KfYqiDYp9mE2YTZitiy2LE92YXYsdmD2LIg2KfZhNin2LHYtNin2K8g2KfZhNmG2YHYs9mKLSDZg9mE2YrYqSDYp9mE2KrYsdio2YrYqSXZhdi32KjYudipINis2KfZhdi52Kkg2KjZhtmKINiz2YjZitmBGdi12YrYr9mE2Ycg2KfZg9mE2YrZhtmK2YMv2YXYsdmD2LIg2K/Ysdin2LPYp9iqINmI2KPYqNit2KfYqyDYp9mE2YXZitin2Ydn2YXYsdmD2LIg2KfZhNiv2LHYp9iz2KfYqiDYp9mE2KrZg9mG2YjZhNmI2KzZitipINmI2KfZhNmF2LnZhNmI2YXYp9iq2YrYqSAtINmD2YTZitipINin2YTYrdin2LPYp9io2KfYqkXZhdix2YPYsiDYqtiv2LHZitioINin2YTYrtix2YrYrNmK2YYg2YTYs9mI2YIg2KfZhNi52YXZhCAtINio2YrYt9ix2Yo72KfZhNiq2K/YsdmK2Kgg2LnZhNmJINiq2YPZhtmI2YTZiNis2YrYpyDYp9mE2YXYudmE2YjZhdin2Kpf2YXYudmF2YQg2YfZhtiv2LPYqSDYp9mE2LfYsdmCINmI2KfZhNmF2LHZiNixICjZg9mE2YrYqSDYp9mE2YfZhtiv2LPZhyDZiNit2K/YqSDYp9mE2YXYudin2YXZhClE2KfZhNmF2LnZhdmEINin2YTZhdix2YPYstmKIC0g2YPZhNmK2Kkg2KfZhNiv2LHYp9iz2KfYqiDYp9mE2LnZhNmK2Kc32K3Yttin2YbYqSDYstmH2YjYsSDYp9mE2LTYsdmCMSAtINiq2LHYqNmK2Kkg2LfZgdmI2YTYqULZhdix2YPYsiDYp9mE2KrYr9ix2YrYqCDZiNin2YTYp9mG2KrYp9isIC0g2YPZhNmK2Kkg2KfZhNin2LnZhNin2YUm2LXYp9mE2Kkg2KfZhNmE2YrYp9mC2Kkg2KfZhNio2K/ZhtmK2Kkb2KfZhNmH2YjZitipINin2YTYsdmC2YXZitipMdiq2KjYsdi52KfYqiDZhNi12KfZhNitINi12YbYr9mI2YIg2KfZhNiq2YPYp9mB2YQe2YXYpNiq2YXYsdin2Kog2YjZiNix2LQg2LnZhdmEQNin2YTZhdix2YPYsiDYp9mE2LnZhNmF2Yog2YTZhNiq2K/YsdmK2KggLSDZg9mE2YrYqSDYp9mE2KfYr9in2Kgo2KPYrtmE2KfZgtmK2KfYqiDYp9mE2KjYrdirINin2YTYudmE2YXZii3Zhdi52YfYryDYr9ix2KfYs9in2Kog2LnZhNmI2YUg2KfZhNmF2LPZhtmK2YY82YXYsdmD2LIg2KfZhNiq2K3Zg9mK2YUg2KfZhNiv2YjZhNmKIC0g2YPZhNmK2Kkg2KfZhNit2YLZiNmCatmF2LHZg9iyINin2YTYqtiv2LHZitioINmI2KfZhNin2LPYqti02KfYsdin2Kog2YTYudmE2YjZhSDYp9mE2YXZhNin2K3ZhyDZiNiq2YPZhtmI2YTZiNis2YrYpyDYp9mE2YHYttin2KFd2YXYsdmD2LIg2KfZhNiq2K3Yp9mE2YrZhCDYp9mE2K/ZgtmK2YLYqSAo2YPZhNmK2Kkg2KfZhNi52YTZiNmFKSDYt9io2YLYpyDZhNin2LDZhiDYp9mE2K/Zgdi5L9i22YXYp9mGINin2YTYrNmI2K/YqSAtINiu2KfYsdisINin2YTYrNin2YXYudipdtmF2LHZg9iyINin2YTYr9ix2KfYs9in2Kog2KfZhNin2LPYqtix2KfYqtmK2KzZitipINmI2KfZhNin2YLYqti12KfYr9mK2KkgLSDZg9mE2YrYqSDYp9mE2LPZitin2LPYqSDZiNin2YTYp9mC2KrYtdin2K8p2KfZitiv2KfYuSDYqtij2YXZitmGINmE2KzZhtipINiu2KjYsdin2KFY2YXYsdmD2LIg2KfZhNix2YrYp9iv2Ycg2YjYp9mE2LTYsdin2YPZhyDYp9mE2YXYrNiq2YXYudmK2KktINmF2LnZh9ivINin2YTZhdi02LHZiNi52KfYqkjZiNit2K/YqSDYp9mE2KfYs9iq2LTYp9ix2KfYqiDYp9mE2YfZhtiv2LPZitipICjZg9mE2YrYqSDYp9mE2YfZhtiv2LPZhylG2YXYsdmD2LIg2KfZhNmD2YXYqNmK2YjYqtixINmI2KfZhNin2YbYqtix2YbYqiDZg9mE2YrYqSDYp9mE2LXZitiv2YTYqTXZhtmC2YQg2YjYqtiz2YjZitmCINin2YTYqtmD2YbZiNmE2YjYrNmK2KcgKNio2K3ZiNirKUPZhdix2YPYsiDYqti52YTZitmFINin2YTYudix2KjZitipINmE2LrZitixINin2YTZhtin2LfZgtmK2YYg2KjZh9inOtin2K7Yqtio2KfYsdin2Kog2YLYr9ix2KfYqiDYq9in2YbZiNmK2Kkg2LnYp9mF2Kkg2YLYr9mK2YVd2KfYtNiq2LHYp9mD2KfYqiDYp9mE2LnZhNin2Kwg2KfZhNi32KjZiiDZhNij2LnYttin2KEg2KfZhNiq2K/YsdmK2LPYjCAg2YXYtdixINmE2YTYqtij2YXZitmGM9mF2K/ZgdmI2LnYp9iqINmD2YTZitipINin2YTYudmE2KfYrCDYp9mE2LfYqNmK2LnZihVPATMBMQI2OQI4NwI1OQIxNQI2OAI2MQE5AjMzAzEwNAMxMTYCNDMCMTECMzgBMgI5NwIyNAMxMTkBNgI5MQI3NQIxNAI0OQI0MAMxMDYCOTACMjYCODABNwI0NwMxMDcBNAI2NwIyMgI5NgI3OAI1NgI0MQMxMDEDMTA4Ajk4AjQ1AzExMQI2MgI2NAI2NgIyMQI4NQIxOQIxMAIyMAIzMAI0NgI0MgIxNgI3NgIxMwI4MQMxMTgCNTQDMTIxAzExNwMxMjACMjkCMjUDMTA5AjY1AzExNAI1NwI3MwMxMDUCMzkCODYCNzkCMzUDMTE1AzEyMgMxMjMUKwNPZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBZmQCHQ8PZA8QFgFmFgEWAh4OUGFyYW1ldGVyVmFsdWVlFgFmZGQCHw8PZA8QFgFmFgEWAh8BZRYBZmRkAgUPDxYCHgRUZXh0BQYyODU4MTBkZGQBb4aoLud8YPl+jUPHRxpIKgBa/ifleEZVuwACzG827g==" />
 
-    <!-- الهيدر -->
-    <header class="sticky-header">
-        <div class="logo">
-            <h1>بلس <span class="plus-sign">+</span></h1>
-        </div>
-        <nav>
-            <    <ul>
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="courses.html">المقررات</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-                <li><a href="admin.html">تسجيل دخول الأدمن</a></li>
-                <li><a href="signup.html">تسجيل حساب</a></li>
-            </ul>
-        </nav>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </header>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="36D7814B" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAIsBFJzmqUHdCX5MRgwewYycJn6oDcWgy9KxcovutDfJ/AO5S6j/7pVdPjGldH91wkHqPHTj1WDoH4IVdlokL/HZM00OMcaXPPrrd30mfPyM6+3NdmS2J2+RomtAvG4Cg+Og/chWA5tm9GhK8fOYzCKuIsoEim6hNJUOWnm1Ik/SL4U++y8qHRYj7VSt8bvF8tV+MZ6+g3LuulPdPMVQ6XmheK9GCwJj6LbZyJr3Wx1sAJ6sXcE019Q4YnP/7jipg0ZRKyZS2l2kdIOA5V03Q0bUvRv9ZQ6UwDMfcX6FuUeIe2QOjdiZzApnfctpSFuY4inLgU6WTIo1jW0Tq1PE/mji6rndpCXf+6mMDjvCmfTIAR5OVvQgUex0Juf58wf1cn2e3eyL0RPLVxgV90tKks7KFe7VWhDGnAsoGI7Qz/duXnXNIFXoD23Mqwc71FXDGUlwmTJPVwiemxmojbAEnjZ7lcMBjgHsgdYEQTswbnZxAhnjyxkX840UcxNrcQjB7lAIO+FkUsM+QJ470WoWOgA9jEN02IKgT83YA3CtTxNmBL4rlVIav1bF325/XjxgNGFybRAzYJ3GSObgr7bdojSf+5Mr8FnungykLRwzRq/+9TuW8VDCREIjhnCL+G8zojgg1A4OcW17Si5lLyFICmHrq2xOD0z/qfAyGzAPws2Z2WuRH4EIKRrtlxVEtlQd87WPiBStzWiIYU7xBgUU0nX6IhU0izkgNOdqrbH9u+4MX9K7ShE8NNYZeyUrtSI9vbxUzp2N7r97XH5/wbaefbt53iSQYICmmOFSmz7rv4uSpuH/dzQjkgZiGbDiexLgrvkEvxqCImq2WDb1Il8SPwA++1cAnoCqZzJukUKAiS9z8QsKDL2gICN5/R3R6oLKbJz/9uzGOqmQs4mTDlt9a6VVOkPWGrJCOcTS5LzcymWcnFfoPVVi5DHE3ox4DiYX+ZDvbyI8Il8yBT5mZfkgbXHcPIPJDP5j1KhsM5Qw9f6aRLEDlrWZjJuW1cHiAagYvBpeJV14pgTEOASYs107LBlYgBESEOpSoPDLMvAUZ4dRNb8qn09jw2xUVIEgGdakBaCT5Xlhu0tkCAb/doTHpsRlnud9HSCGRMnvLW2MO+psqe6c2J2Yy/48hD2fvH/E7wkCnMJPMsqO5QbV2Gy5IU7WniTE6D9ydkou5uqPpG6YPQahVi9uP9Qeo+azGFJH29BMOvl9ozRb50Df4oPmCuZ9J4kHj7KsGQZ9KI/q0cgR79cBf3TY2/dD0OPfBq2I/WnzS2+AxUaREc4cPzv4Ssm+foxJMPPd7FkSVovx1MBR/UOMp2tAmngGuQ37e2TML3OCGF+t1Wrbo+vK0ex+h7FZkT4h9eUgrJoAzgoO03VoPCm315n2Tm9TN8RBG5b+yrqVdZ/FILtNeQnCBt2SxwQfIIX87SKHqYya3lGtpXJzX3RKJj7X5SMpBiR/ySiyyorVvgCZizEfc6iAkIfnIUBdr9OJW/uBDfa64Klqq0LaZ8C6Mu0POC+3TVPpWIvQMQybErQEtD8VLAoUcsqt3QTRNupFu0aOx6rPxp3L2HwTpRWdpmO2pGANOY/Ixj+dYz2iulPgWObVjQqAfQRIwrFvdoflGiX/nCSpzX8Y3OQDU6+vDUSqWQuiK0ItCqPMAGPd+EapMvhL49lbrWpLMXoZT4Idv09yyWeL52ggGv6X5mKlTilGbJLiHejGWW4VkaABti/gg6V25bukvJaSLtILBLHv5IS8wk3GxE5ER99PoWmGIvbewVwm3xucgeamZN73Wdf6/oCCPVWgZlmywIUxCwRmxzNOWUXvCGS+rTY+d/aHvH2WAG5WXdhVs8LB5Hbu3toj7YbwQ3ua9By6aRIAqI42/GJKLgzlt7NOl3wRtmE/e1V+gCRJv0gqU6HVIJzwupYiK+nbNERuoFLT/r9OR55V6iVFuJ4MsLfSzrQik/qwe1mTCSOBpSHL8pzz0M47oaIqOKeuRsdIWypc8bjjK79TgcsRKbgR+psj268ndIyD0Z/+UxwOBv5f9SNX/6vt8YK8ZZUAPcvlCJ1MNd3wGAtP51aIVSCkp24y8KGxMcEgKqvH1/aZ99fah+V6pyYvT6OJfK0bUUv7AcCwypO3ur68NQmXx4yE/4QV5zpWO0AhXbhvyNOmjBWklUb94iWTUaV15cu10dIkKhfQm4W/f0iqyndCOAxSd5QtOtWbB7LwlKizaejjP1H+hCXZoCPnyBhGCpxGkM+Ceebg0grBH7I0Piv+RVgvafwFiItLgywUT0wie5r3jrItkPETAvokIauSNoQMbDRWrD52Per7gHjMAxquRry/Qu0azHr6NCEwTSoqoK0blavBa5oZ/ksHoeRtXwyP+pGThHUnHQ288jarMnaXTuyxNBETQ+C5aAd1kUgIiK8XUvltd0bK6i6mm1N3yz2bnjB3LbE9JTM+q424eukjpgNaptWBr+94upgrBd5kBYY+8vEaWPEMD+YCVN3veH+vrfG8fXls9hCPi5Uiwt3QEEnNC7BVdZ2tXID5ShuddB2RcpleDz7cRiecHC9HfEzdZMYVpRXgO/M1lP9AK5sKcnBGhylXI3WJrZj2DmQCjJTk+Y8biZtOGZk8qqgmOu2JMnupTpWxdQYihiWK4p9rOqy1vPJO6V0rf7X8TkRCZW6jWVk0SE3OIdFHywIQGKOU3wpA++u48MO40YkeBxv96sUM0SysJGDeGd+awFOpBgLyM63FM1Spa2+HAN5czF4lnSpXvlWeh8WebcxGHmiDbtakm8zo1MoHafFppG/xzJ8fOJZ2fNw76E+at/YPaTIZVQPvN+wf2bLKTcRIeSCKtNl9zCz5qygFDvXuw5/0tmSIGdalTKVNiHakjL+++v63VHZuQPocw9hpCjT6a4Ck/eb/F71/3lhpPMRbJIXguQurj7b4cJcf47o4jDu35o5CUn6umW4JNpE1pz9AB995NiqhBCrWvExoMsj5JAAY3kQAKpc7ml7ZTNCZ" />
+    
+    <div class="container">
+		<div class="row">
+			<div class="class="col-lg-3 col-12" ><div class="logo"><img src="img/logo.png"  />  </div></div>
+			
+               
+			</div></div>
+			
+        
+    <!--<div id="modal-1" class="modal animate-opacity">
+   <div class="modal-content">
+      <div class="modal-inner">
+         <span onclick="document.getElementById('modal-1').style.display='none'" class="modal-close">&times;</span>
+        <img src="Untitled.png" height="500px" width="550px" />
+      </div> 
+   </div>
+</div>-->
+    <div class="well well-sm">
+				<h4 class="text-center alert alert-info fade in">التحصيل الالكترونى</h4>
+    <div class="grouptitle">
+		<h3>بيانات الاسم</h3>
+			<div class="row">
+			
+			<div class="col-md-6">
+		   <div class="input-group">
+			  <span class="input-group-addon">  <i class="fa fa-child"></i> <label class="alert-danger">(*)</label></span>
+               <input name="ctl00$ContentPlaceHolder1$TxtFirstName" type="text" id="ctl00_ContentPlaceHolder1_TxtFirstName" title="إسم الطالب " class="form-control" placeholder=" اسم الطالب كما مثبت في بطاقه الرقم القومي" required="" />
+			 
+			</div>
 
-    <!-- الهيرو سيكشن -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>مرحبًا بك في بلس</h2>
-            <p>تعلم الرياضيات بطريقة ممتعة ومبتكرة لكل المراحل الدراسية!</p>
-            <a href="courses.html" class="cta-button">استكشف المقررات</a>
-        </div>
-    </section>
+  &nbsp;
+			 
 
-    <!-- لمحة عن المقررات -->
-    <section id="courses-preview" class="courses">
-        <h2>مقرراتنا الدراسية</h2>
-        <div class="course-grid">
-            <div class="course-card">
-                <i class="fas fa-book"></i>
-                <h3>الصف الأول الإعدادي</h3>
-                <p>دروس شاملة للجبر والهندسة.</p>
-                <a href="courses.html" class="course-link">عرض التفاصيل</a>
-            </div>
-            <div class="course-card">
-                <i class="fas fa-book"></i>
-                <h3>الصف الثالث الثانوي - علمي</h3>
-                <p>رياضيات متقدمة مع امتحانات تجريبية.</p>
-                <a href="courses.html" class="course-link">عرض التفاصيل</a>
-            </div>
-            <div class="course-card">
-                <i class="fas fa-book"></i>
-                <h3>الصف الثالث الثانوي - أدبي</h3>
-                <p>رياضيات مبسطة للشعبة الأدبية.</p>
-                <a href="courses.html" class="course-link">عرض التفاصيل</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- الفوتر -->
-    <footer id="contact">
-        <div class="footer-content">
-            <h3>تواصل مع بلس</h3>
-            <p>البريد الإلكتروني: <a href="mailto:plusinmath@gmail.com">plusinmath@gmail.com</a></p>
-            <p>خدمة العملاء: <a href="tel:+201558870907">01558870907</a></p>
-            <div class="social-icons">
-                <a href="https://wa.me/201558870907"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://t.me/plusmaths"><i class="fab fa-telegram"></i></a>
-                <a href="https://facebook.com/plusmaths"><i class="fab fa-facebook"></i></a>
-                <a href="https://instagram.com/mahdi2hassan"><i class="fab fa-instagram"></i></a>
+
+
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>	
+                <div class="col-md-6">
+		   <div class="input-group">
+			  <span class="input-group-addon">  <i class="fa fa-child"></i> <label class="alert-danger">(*)</label></span>
+               <input name="ctl00$ContentPlaceHolder1$NN" type="text" maxlength="14" id="ctl00_ContentPlaceHolder1_NN" title="رقم تحقيق الشخصية" class="form-control" placeholder="رقم تحقيق الشخصية كما مثبت في بطاقه الرقم القومي" required="" />
+
+</div>
+
+                    &nbsp;
+
+
+                    &nbsp;
+			 
+
+                
+
+
+
+
+
+
+			</div>	
+               
+			
+
+			
+			</div>  <!-- END ROW 1!-->
+        <h3>بيانات الكلية</h3>
+        <div class="row">
+            		
+
+						     
+			<div class="col-md-12">
+                <input name="ctl00$ContentPlaceHolder1$txtNew" type="text" id="ctl00_ContentPlaceHolder1_txtNew" title="Enter Text Here" class="form-control" PlaceHolder="بحث عن الكلية" />
+		   <div class="input-group">
+          		
+			  <span class="input-group-addon">  <i class="fa fa-university"></i> <label class="alert-danger">(*)</label></span>
+               
+                      
+                          <select name="ctl00$ContentPlaceHolder1$DdlFaculty" id="ctl00_ContentPlaceHolder1_DdlFaculty" title="كلية" class="form-control selectpicker" required="">
+	<option selected="selected" value="">اختر الكلية</option>
+	<option value="1">كلية التربية</option>
+	<option value="2">كلية التكنولوجيا والتعليم</option>
+	<option value="3">كلية التمريض</option>
+	<option value="4">كلية الصيدله</option>
+	<option value="5">كلية التربية الرياضية</option>
+	<option value="7">كلية الحقوق</option>
+	<option value="8">كلية الطب</option>
+	<option value="9">كلية الطب البيطرى</option>
+	<option value="10">كلية العلوم</option>
+	<option value="11">كلية الآداب</option>
+	<option value="12">كلية التجارة</option>
+	<option value="358">كلية التربية للطفولة المبكرة</option>
+	<option value="431">كلية الهندسة</option>
+	<option value="579">كلية السياسة والاقتصاد</option>
+	<option value="588">كلية الاعلام</option>
+	<option value="590">كلية الحاسبات والذكاء الاصطناعى</option>
+	<option value="591">كلية طب الاسنان</option>
+	<option value="592">كلية العلاج الطبيعى</option>
+	<option value="593">كلية الدراسات العليا للعلوم المتقدمة</option>
+	<option value="603">كلية الزراعة</option>
+	<option value="604">كلية تكنولوجيا العلوم الصحية التطبيقية</option>
+	<option value="605">كلية الفنون التطبيقية</option>
+	<option value="607">كلية الخدمة الاجتماعية التنموية</option>
+	<option value="609">كلية الالسن</option>
+	<option value="610">كلية السياحة والفنادق</option>
+	<option value="612">كلية علوم الارض</option>
+	<option value="613">كلية علوم ذوى الاحتياجات الخاصة</option>
+	<option value="625">معهد فنى تمريض</option>
+	<option value="633">معهد ابحاث وتطبيقات الليزر</option>
+	<option value="654">كليات التعليم المفتوح بالجامعة</option>
+	<option value="656">المعهد القومى لعلوم المسنين</option>
+	<option value="664">وحدة المشروعات</option>
+	<option value="665">ادارة الوافدين</option>
+	<option value="666">مركز البحوث</option>
+	<option value="667">رعاية الشباب المركزي</option>
+	<option value="668">الصناديق المركزية</option>
+	<option value="671">مركز اللغات والترجمة</option>
+	<option value="673">مركز تنمية قدرات اعضاء هيئة التدريس</option>
+	<option value="674">المعمل المركزي كلية الدراسات العليا</option>
+	<option value="675">مركز المؤتمرات</option>
+	<option value="676">مركز الاستشارات التربوية</option>
+	<option value="677">مركز الإرشاد النفسي</option>
+	<option value="678">مركز التحكيم الدولي</option>
+	<option value="679">وحدة الاستشارات الهندسية</option>
+	<option value="680">مركز الدراسات التكنولوجية</option>
+	<option value="681">كلية علوم الملاحة و تكنولوجيا الفضاء</option>
+	<option value="682">المدن الجامعية</option>
+	<option value="683">إدارة الجامعة</option>
+	<option value="684">معهد دراسات المشروعات الصغيرة والمتوسطة</option>
+	<option value="686">مطبعة الجامعة</option>
+	<option value="687">خدمة المجتمع وتنمية البيئة المركزى</option>
+	<option value="689">مركز الانتاج والخدمات الطلابية</option>
+	<option value="706">معهد ابحاث النباتات الطبية والعطرية</option>
+
+</select> 
+                      
+                      
+			 
+                      
+             
+							
+				</div>
+			</div>
+											
+			</div>
+                    		<h3>نوع الخدمه</h3>
+
+		<div class="row">
+             
+            <div class="col-md-12">
+                  <input name="ctl00$ContentPlaceHolder1$TextBox1" type="text" id="ctl00_ContentPlaceHolder1_TextBox1" title="Enter Text Here" class="form-control" PlaceHolder="بحث عن نوع الخدمة ثم اضغط انتر" />
+				<div class="input-group">
+                     <span class="input-group-addon">  <i class="fa fa-child"></i> <label class="alert-danger">(*)</label></span>
+                 
+                    <select name="ctl00$ContentPlaceHolder1$DropDownList1" id="ctl00_ContentPlaceHolder1_DropDownList1" class="form-control" required="">
+	<option selected="selected" value="3">شئون طلاب</option>
+	<option value="1">الدراسات العليا</option>
+	<option value="69">التدريب الميداني</option>
+	<option value="87">التربيه العسكريه</option>
+	<option value="59">مدفوعات الادارة الطبية </option>
+	<option value="15">مركز الطب الشرعي وتحليل السموم- كلية الطب البشري</option>
+	<option value="68">التربية العملية ثالثه ورابعه</option>
+	<option value="61">مقابلة شخصية (مرحلة البكالوريوس )</option>
+	<option value="9">توثيق شهادات - خريجين مصريين فقط</option>
+	<option value="33">مدفوعات الشعب والبرامج الخاصه</option>
+	<option value="104">أساسيات التحول الرقمي</option>
+	<option value="116">خدمات الكشف الطبي للطلاب</option>
+	<option value="43">مركز اللغات والترجمة</option>
+	<option value="11">مركز التدريب والخدمة العامة - علوم احتياجات خاصة</option>
+	<option value="38">مركز تنمية الموارد البشرية</option>
+	<option value="2">مركز التعليم المدمج </option>
+	<option value="97">مدفوعات المكتبة الرقمية</option>
+	<option value="24">المجلات العلمية</option>
+	<option value="119">مدفوعات الخريجين</option>
+	<option value="6">اعضاء هيئة التدريس والباحثين</option>
+	<option value="91">مدفوعات كلية العلوم الطبية</option>
+	<option value="75">مركز الدراسات المالية والتجارية </option>
+	<option value="14">كلية الدراسات العليا للعلوم المتقدمه</option>
+	<option value="49">مركز تطوير التعليم الطبي</option>
+	<option value="40">معمل خواص ومقاومة المواد (كلية الهندسه وحدة المعامل)</option>
+	<option value="106">مركز ضمان الجوده والاعتماد</option>
+	<option value="90">العيادات الخارجية - طب اسنان</option>
+	<option value="26">مركز الانشطة الرياضية-تربية رياضية</option>
+	<option value="80">مدفوعات المكتبات</option>
+	<option value="7">عاملين بالجامعة</option>
+	<option value="47">مركز دعم وتطوير البحوث</option>
+	<option value="107">اشتراكات مؤتمرات</option>
+	<option value="4">التأهيل التربوي - تعليم صناعي</option>
+	<option value="67">مدفوعات كلية طب اسنان</option>
+	<option value="22">مركز التدريب والاستشارات التربويه - كلية التربية</option>
+	<option value="96">وحدة السيارات</option>
+	<option value="78">تعليم الكترونى</option>
+	<option value="56">برنامج المعلوماتية الطبية</option>
+	<option value="41">معمل ميكانيكا التربه (كلية الهندسه وحدة المعامل)</option>
+	<option value="101">معمل الذكاء الاصطناعي - جامعة بني سويف</option>
+	<option value="108">المركز الجامعي للتطوير المهني U C C D</option>
+	<option value="98">مركز البحوث والمنتجات الزراعية </option>
+	<option value="45">مركز التدريب والانشطه - كلية التمريض</option>
+	<option value="111">دورات مركز خدمة المجتمع الادارة العامة للجامعة</option>
+	<option value="62">معهد المشروعات الصغيرة والمتوسطه</option>
+	<option value="64">مركز التدريب المستمر - كلية الهندسه</option>
+	<option value="66">معهد أبحاث وتطبيقات الليزر</option>
+	<option value="21">مركز الارشاد النفسي- كلية التربية</option>
+	<option value="85">مطبعة جامعة بني سويف</option>
+	<option value="19">صيدله اكلينيك</option>
+	<option value="10">مركز دراسات وأبحاث المياه</option>
+	<option value="20">مركز الدراسات التكنولوجية والمعلوماتية - كلية الحاسابات</option>
+	<option value="30">مركز تدريب الخريجين لسوق العمل - بيطري</option>
+	<option value="46">التدريب على تكنولوجيا المعلومات</option>
+	<option value="42">معمل هندسة الطرق والمرور (كلية الهندسه وحدة المعامل)</option>
+	<option value="16">المعمل المركزي - كلية الدراسات العليا</option>
+	<option value="76">حضانة زهور الشرق1 - تربية طفولة</option>
+	<option value="13">مركز التدريب والانتاج - كلية الاعلام</option>
+	<option value="81">صالة اللياقة البدنية</option>
+	<option value="118">الهوية الرقمية</option>
+	<option value="54">تبرعات لصالح صندوق التكافل</option>
+	<option value="121">مؤتمرات وورش عمل</option>
+	<option value="117">المركز العلمي للتدريب - كلية الاداب</option>
+	<option value="120">أخلاقيات البحث العلمي</option>
+	<option value="29">معهد دراسات علوم المسنين</option>
+	<option value="25">مركز التحكيم الدولي - كلية الحقوق</option>
+	<option value="109">مركز التدريب والاستشارات لعلوم الملاحه وتكنولوجيا الفضاء</option>
+	<option value="65">مركز التحاليل الدقيقة (كلية العلوم) طبقا لاذن الدفع</option>
+	<option value="114">ضمان الجودة - خارج الجامعة</option>
+	<option value="57">مركز الدراسات الاستراتيجية والاقتصادية - كلية السياسة والاقتصاد</option>
+	<option value="73">ايداع تأمين لجنة خبراء</option>
+	<option value="105">مركز الرياده والشراكه المجتمعية- معهد المشروعات</option>
+	<option value="39">وحدة الاستشارات الهندسية (كلية الهندسه)</option>
+	<option value="86">مركز الكمبيوتر والانترنت كلية الصيدلة</option>
+	<option value="79">نقل وتسويق التكنولوجيا (بحوث)</option>
+	<option value="35">مركز تعليم العربية لغير الناطقين بها</option>
+	<option value="115">اختبارات قدرات ثانوية عامة قديم</option>
+	<option value="122">اشتراكات العلاج الطبي لأعضاء التدريس،  مصر للتأمين</option>
+	<option value="123">مدفوعات كلية العلاج الطبيعي</option>
+
+</select>
+                    
+                    </div></div>
+            <div class="col-md-12">
+				<div class="input-group">
+                    <p><input type="checkbox" name="checkbox_nam" class="form-check-input"  required /><label class="form-check-label">اقر بإن البيانات بعاليه صحيحه وعلى مسئوليتي .
+واذا تبين خلاف ذلك لايلتفت للايصال</label></p>
+
+		</div></div>
+			<div class="input-group">
+						
+                                <div class="col-sm-12 right_text colso">
+                                    <input type="submit" name="ctl00$ContentPlaceHolder1$Button1" value="حفظ" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$Button1&quot;, &quot;&quot;, true, &quot;check&quot;, &quot;&quot;, false, false))" id="ctl00_ContentPlaceHolder1_Button1" class="btn btn-danger btnhg" />
+                                </div>
+                                
+                            </div>		
+        <div class="input-group">
+            <div class="col-sm-12 right_text ">
+               
+                
             </div>
+        </div>			
+    
+    
+        </div></div></div>
+
+       
+
+       
+        </form>
+   
+    <footer>
+      <div class="container">
+           <div class="row">
+			<label class="alert-danger" style="color:#f29f06">تنبيه :- السادة اولياء الامور ابناءنا الطلاب يرجى عدم سداد اي مبالغ الا بعد طلبها من ادارة الكلية </label> 
+			<label class="alert-danger" style="color:#f29f06">تبيه :- يرجى مراجعه الكليه او المركز قبل السداد  </label> 
+               <br />
+			<label class="alert-danger" style="color:#f29f06">  في حاله اخطاء الدفع او السداد يتم الرجوع لادارة التحصيل  </label> 
+
+			</div>
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+         <p>Copyright ©  فريق التطوير - جامعه بنى سويف بالجامعة <br/>
+			  Designed and Developed by Development Team Benisuef University</p>
+              
+            </div>
+
+          </div>
+
+            <div class="row">
+                <h3> <center> <label class="alert-danger" style="color:#f29f06">عدد الزوار <span id="ctl00_LBLVisit"><b><font color="White">285810</font></b></span>  زائر   </label> </center></h3>
+                    </div>
         </div>
+        <!-- End Copyright -->
+
+      </div>
     </footer>
-
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-  
-    <script src="https://unpkg.com/scrollreveal"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="main.js"></script>
+    
 </body>
 </html>
+
